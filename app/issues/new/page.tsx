@@ -28,6 +28,17 @@ export default function NewIssuePage() {
     resolver: zodResolver(createIssueSchema),
   });
 
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      setIsSubmitting(true);
+      await axios.post("/api/issues", data);
+      router.push("/issues");
+    } catch (error) {
+      setIsSubmitting(false);
+      setError("An error has occurred");
+    }
+  });
+
   return (
     <div className="max-w-lg">
       {error ? (
@@ -38,19 +49,7 @@ export default function NewIssuePage() {
         ""
       )}
 
-      <form
-        className="space-y-2"
-        onSubmit={handleSubmit(async (data) => {
-          try {
-            setIsSubmitting(true);
-            await axios.post("/api/issues", data);
-            router.push("/issues");
-          } catch (error) {
-            setIsSubmitting(false);
-            setError("An error has occurred");
-          }
-        })}
-      >
+      <form className="space-y-2" onSubmit={onSubmit}>
         <TextField.Root placeholder="Title" {...register("title")} />
         <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
