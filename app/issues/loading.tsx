@@ -10,7 +10,7 @@ export default function LoadingIssuesPage() {
   return (
     <div>
       <IssueActions />
-      <Table.Root variant="surface" className="">
+      <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
