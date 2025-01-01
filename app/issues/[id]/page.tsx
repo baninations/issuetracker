@@ -3,7 +3,7 @@ import { Box, Flex, Grid } from "@radix-ui/themes";
 import { notFound } from "next/navigation";
 import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
-import DeleteIssueButton from "./deleteIssueButton";
+import DeleteIssueButton from "./DeleteIssueButton";
 
 export default async function IssueDetailPage({
   params,
@@ -26,8 +26,8 @@ export default async function IssueDetailPage({
       </Box>
       <Box>
         <Flex direction="column" gap="4">
-          <DeleteIssueButton issueId={issue.id} />
           <EditIssueButton issueId={parseInt(id)} />
+          <DeleteIssueButton issueId={parseInt(id)} />
         </Flex>
       </Box>
     </Grid>
