@@ -1,12 +1,3 @@
-import { Skeleton } from "@/app/components";
-import { Box } from "@radix-ui/themes";
+import IssueFormSkeleton from "../_components/IssueFormSkeleton";
 
-export default function IssueNewLoading() {
-  return (
-    <Box className="max-w-xl">
-      <Skeleton />
-      <Skeleton count={10} />
-      <Skeleton width="2rem" />
-    </Box>
-  );
-}
+export default IssueFormSkeleton;
