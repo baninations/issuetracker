@@ -38,7 +38,7 @@ export default function IssueForm({ issue }: Props) {
       setIsSubmitting(true);
       if (issue) await axios.patch("/api/issues/" + issue.id, data);
       else await axios.post("/api/issues", data);
-      router.push("/issues");
+      router.push("/issues/list");
     } catch (error) {
       setIsSubmitting(false);
       setError("An error has occurred");
