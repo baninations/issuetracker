@@ -5,7 +5,8 @@ import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
 import DeleteIssueButton from "./DeleteIssueButton";
 import { getServerSession } from "next-auth";
-import authOptions from "@/app/auth/AuthOptions";
+import authOptions from "@/app/auth/authOptions";
+import AssigneeSelect from "./AssigneeSelect";
 
 export default async function IssueDetailPage({
   params,
@@ -30,6 +31,7 @@ export default async function IssueDetailPage({
       {session && (
         <Box>
           <Flex direction="column" gap="4">
+            <AssigneeSelect />
             <EditIssueButton issueId={parseInt(id)} />
             <DeleteIssueButton issueId={parseInt(id)} />
           </Flex>
