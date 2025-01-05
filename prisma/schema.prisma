@@ -22,6 +22,7 @@ model Issue {
   updatedAt      DateTime @updatedAt
   assignToUserId String?  @db.VarChar(255)
   assignedToUser User?    @relation(fields: [assignToUserId], references: [id])
+  textField      String?
 }
 
 enum Status {
